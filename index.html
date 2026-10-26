@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Ôn Tập Giữa Kì 1 - GDQP & AN Lớp 11</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Sticky Top Header -->
+  <header class="top-header">
+    <div class="header-inner">
+      <div class="header-title-box">
+        <h1>GDQP & AN 11</h1>
+        <p>Đề Ôn Tập Giữa Kì 1 (59 Câu)</p>
+      </div>
+
+      <div class="header-right">
+        <!-- 45-Minute Timer -->
+        <div class="timer-badge" id="timerBadge" title="Thời gian làm bài còn lại">
+          <span>⏱️</span>
+          <span id="timerDisplay">45:00</span>
+        </div>
+
+        <!-- Theme Toggle -->
+        <button type="button" class="btn btn-icon" id="themeBtn" onclick="toggleTheme()" title="Đổi sáng/tối">🌙</button>
+
+        <!-- Submit Button in Header -->
+        <button type="button" class="btn btn-black" id="topSubmitBtn" onclick="openSubmitModal()">
+          Nộp bài
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-container">
+
+    <!-- Quiz Info Card -->
+    <section class="quiz-summary-card">
+      <h2>Đề Ôn Tập Giữa Học Kì 1</h2>
+      <div class="quiz-meta-tags">
+        <span class="meta-tag">59 câu hỏi trắc nghiệm</span>
+        <span class="meta-tag">Thời gian: 45 phút</span>
+        <span class="meta-tag">Đã xáo trộn ngẫu nhiên A, B, C, D</span>
+      </div>
+
+      <div class="progress-bar-wrap">
+        <div class="progress-header">
+          <span>Tiến độ làm bài:</span>
+          <span id="progressText">0/59 câu (0%)</span>
+        </div>
+        <div class="progress-track">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Result Banner (Hiển thị sau khi bấm nộp bài) -->
+    <div class="result-box" id="resultBox"></div>
+
+    <!-- Questions Feed (Danh sách 59 câu hỏi) -->
+    <div class="questions-feed" id="questionsFeed"></div>
+
+  </main>
+
+  <!-- Mobile Bottom Navigation Bar -->
+  <nav class="bottom-nav">
+    <div class="bottom-nav-inner">
+      <button type="button" class="btn btn-black btn-open-palette" onclick="toggleDrawer(true)" id="btnBottomCounter">
+        📋 Danh sách câu hỏi (0/59)
+      </button>
+      <button type="button" class="btn btn-black" onclick="openSubmitModal()">
+        Nộp bài
+      </button>
+    </div>
+  </nav>
+
+  <!-- Drawer Bảng 59 câu hỏi (Vuốt / Bấm để mở) -->
+  <div class="drawer-overlay" id="drawerOverlay" onclick="toggleDrawer(false)"></div>
+  <div class="palette-drawer" id="paletteDrawer">
+    <div class="drawer-header">
+      <h3>Danh sách 59 câu hỏi</h3>
+      <button type="button" class="btn btn-icon" onclick="toggleDrawer(false)">✕</button>
+    </div>
+    <div class="palette-grid" id="paletteGrid"></div>
+  </div>
+
+  <!-- Modal xác nhận nộp bài -->
+  <div class="simple-modal" id="confirmModal">
+    <div class="modal-content-box">
+      <h3>Xác nhận nộp bài</h3>
+      <p id="submitModalMsg">Bạn có chắc chắn muốn nộp bài thi ngay bây giờ không?</p>
+      <div class="modal-actions">
+        <button type="button" class="btn" onclick="closeSubmitModal()">Làm tiếp</button>
+        <button type="button" class="btn btn-black" onclick="submitQuiz()">Nộp bài ngay</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="questions.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
